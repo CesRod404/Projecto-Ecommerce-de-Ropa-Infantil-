@@ -1,0 +1,359 @@
+.catalogo-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  text-align: center;
+}
+
+/* Eliminar decoración de links */
+.catalogo-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.catalogo-card a:hover {
+  text-decoration: none;
+}
+
+.catalogo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.catalogo-card img{
+  width: 90%;
+}
+
+
+/* Nombre centrado */
+.catalogo-card h3 {
+  font-size: 18px;
+  margin: 15px 0 10px;
+  font-weight: 600;
+  color: #1e293b;
+  min-height: 50px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Precio centrado */
+.catalogo-card p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 15px;
+  text-align: center;
+}
+
+/* Botón de favoritos (corazón) */
+.favorite-heart {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  font-size: 20px !important;
+}
+
+.favorite-heart:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 1);
+}
+
+.favorite-heart.liked {
+  background: #ff3b30;
+  color: white;
+  border-color: #ff3b30;
+}
+
+/* Botón Agregar al Carrito centrado */
+.add-to-cart-btn {
+  margin: 10px auto 0;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #000;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-to-cart-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+/* Mensaje de confirmación centrado */
+.mensaje-carrito {
+  margin: 12px auto 0;
+  font-size: 14px;
+  color: #10b981;
+  font-weight: 500;
+  animation: fadeInMessage 0.4s ease-in-out;
+  text-align: center;
+  padding: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 8px;
+  width: 90%;
+}
+
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ESTILOS PARA MOVILES Y TABLETS */
+@media (max-width: 1024px) {
+  .catalogo-card {
+    padding: 18px;
+  }
+  
+  .product-image {
+    height: 260px;
+  }
+  
+  .product-image img {
+    max-width: 92%;
+    max-height: 92%;
+  }
+  
+  .catalogo-card h3 {
+    font-size: 17px;
+    min-height: 45px;
+    margin: 12px 0 8px;
+  }
+  
+  .catalogo-card p {
+    font-size: 19px;
+  }
+  
+  .favorite-heart {
+    width: 40px;
+    height: 40px;
+    top: 18px;
+    right: 18px;
+  }
+  
+  .add-to-cart-btn {
+    width: 92%;
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+  
+  .mensaje-carrito {
+    font-size: 13px;
+    width: 92%;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalogo-card {
+    padding: 16px;
+  }
+  
+  .product-image {
+    height: 250px;
+  }
+  
+  .product-image img {
+    max-width: 95%;
+    max-height: 95%;
+  }
+  
+  .catalogo-card h3 {
+    font-size: 16px;
+    min-height: 42px;
+  }
+  
+  .catalogo-card p {
+    font-size: 18px;
+  }
+  
+  .add-to-cart-btn {
+    width: 95%;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalogo-card {
+    padding: 15px;
+    border-radius: 16px;
+  }
+  
+  .product-image {
+    height: 240px;
+  }
+  
+  .product-image img {
+    max-width: 98%;
+    max-height: 98%;
+  }
+  
+  .catalogo-card h3 {
+    font-size: 15px;
+    min-height: 38px;
+    margin: 10px 0 8px;
+  }
+  
+  .catalogo-card p {
+    font-size: 17px;
+    margin: 0 0 12px;
+  }
+  
+  .favorite-heart {
+    width: 38px;
+    height: 38px;
+    top: 15px;
+    right: 15px;
+    font-size: 18px !important;
+  }
+  
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  
+  .mensaje-carrito {
+    font-size: 13px;
+    width: 100%;
+    margin: 10px auto 0;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .catalogo-card {
+    padding: 12px;
+  }
+  
+  .product-image {
+    height: 220px;
+  }
+  
+  .product-image img {
+    max-width: 99%;
+    max-height: 99%;
+  }
+  
+  .catalogo-card h3 {
+    font-size: 14px;
+    min-height: 36px;
+    margin: 8px 0 6px;
+  }
+  
+  .catalogo-card p {
+    font-size: 16px;
+  }
+  
+  .favorite-heart {
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    right: 12px;
+    font-size: 16px !important;
+  }
+  
+  .add-to-cart-btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .mensaje-carrito {
+    font-size: 12px;
+  }
+}
+
+/* Mejoras para tablets en orientación vertical */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .product-image {
+    height: 270px;
+  }
+  
+  .product-image img {
+    max-width: 93%;
+    max-height: 93%;
+  }
+  
+  .catalogo-card h3 {
+    font-size: 16px;
+  }
+  
+  .catalogo-card p {
+    font-size: 19px;
+  }
+}
+
+/* Mejoras para pantallas muy grandes */
+@media (min-width: 1400px) {
+  .catalogo-card {
+    padding: 25px;
+  }
+  
+  .product-image {
+    height: 300px;
+  }
+  
+  .product-image img {
+    max-width: 88%;
+    max-height: 88%;
+  }
+  
+  .catalogo-card h3 {
+    font-size: 19px;
+    min-height: 55px;
+  }
+  
+  .catalogo-card p {
+    font-size: 22px;
+  }
+}

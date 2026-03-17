@@ -1,0 +1,122 @@
+.mis-pedidos-container {
+  padding: 40px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.pedidos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.pedido-card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.pedido-card:hover {
+  transform: translateY(-3px);
+}
+
+.pedido-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.pedido-fecha {
+  font-size: 13px;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.estado {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.estado.por_confirmar {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.estado.confirmado {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado.en_camino {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.estado.cancelado {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.productos-lista {
+  margin-bottom: 15px;
+}
+
+.producto-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.producto-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.producto-nombre {
+  font-weight: 600;
+}
+
+.pedido-total {
+  text-align: right;
+  font-size: 16px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+
+  .mis-pedidos-container {
+    padding: 20px;
+  }
+
+  .pedido-card {
+    padding: 15px;
+  }
+
+  .producto-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .producto-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pedido-total {
+    text-align: center;
+  }
+}

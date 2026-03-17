@@ -1,0 +1,359 @@
+/* ===============================
+   CONTENEDOR PRINCIPAL
+================================= */
+.admin-container {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.admin-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #1e293b;
+}
+
+/* ===============================
+   FILTRO SELECT
+================================= */
+.filtro-select {
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filtro-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* ===============================
+   TABLA WRAPPER
+================================= */
+.tabla-wrapper {
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* ===============================
+   TABLA
+================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+thead {
+  background: #f8fafc;
+}
+
+th {
+  padding: 16px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+  padding: 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+  color: #334155;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: #f8fafc;
+}
+
+/* ===============================
+   ELEMENTOS DE LA TABLA
+================================= */
+.producto-item {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.direccion-cell {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.total {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+/* ===============================
+   ESTADO SELECT
+================================= */
+.estado-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.estado-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.estado-select.por_confirmar {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.estado-select.confirmado {
+  background: #d1fae5;
+  border-color: #10b981;
+}
+
+.estado-select.en_camino {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.estado-select.cancelado {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+/* ===============================
+   BOTÓN ELIMINAR
+================================= */
+.btn-eliminar {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.2);
+}
+
+.btn-eliminar:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-eliminar:active {
+  transform: translateY(0);
+}
+
+/* ===============================
+   LOADING STATE
+================================= */
+.loading-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #64748b;
+}
+
+/* ===============================
+   RESPONSIVE - TABLET
+================================= */
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 30px 15px;
+  }
+  
+  .admin-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .filtro-select {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 12px 10px;
+  }
+
+  .producto-item {
+    font-size: 12px;
+  }
+
+  .direccion-cell {
+    font-size: 12px;
+  }
+
+  .total {
+    font-size: 14px;
+  }
+
+  .estado-select {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .btn-eliminar {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE - MOBILE
+================================= */
+@media (max-width: 480px) {
+  .admin-container {
+    padding: 25px 10px;
+  }
+
+  .admin-title {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .filtro-select {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  table {
+    font-size: 12px;
+    min-width: 600px;
+  }
+
+  th, td {
+    padding: 10px 8px;
+  }
+
+  .direccion-cell {
+    font-size: 11px;
+  }
+
+  .producto-item {
+    font-size: 11px;
+  }
+
+  .total {
+    font-size: 13px;
+  }
+
+  .estado-select {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .btn-eliminar {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+/* ===============================
+   EXTRA SMALL DEVICES
+================================= */
+@media (max-width: 360px) {
+  .admin-container {
+    padding: 20px 8px;
+  }
+  
+  .admin-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .filtro-select {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  table {
+    font-size: 11px;
+    min-width: 500px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+  }
+
+  .direccion-cell {
+    font-size: 10px;
+  }
+
+  .producto-item {
+    font-size: 10px;
+  }
+
+  .estado-select {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .btn-eliminar {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}
+
+/* ===============================
+   DATA TABLE MOBILE OPTIMIZATION
+================================= */
+@media (max-width: 600px) {
+  .direccion-cell div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  
+  .producto-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+}

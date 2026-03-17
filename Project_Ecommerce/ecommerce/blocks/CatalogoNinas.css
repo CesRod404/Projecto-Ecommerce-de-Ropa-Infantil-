@@ -1,0 +1,86 @@
+.catalogo-ninas {
+  padding: 2rem;
+  background: #f9f9f9;
+}
+
+.catalogo-ninas h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.catalogo-ninas__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.catalogo-ninas__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalogo-ninas__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.catalogo-ninas__card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;   /* 👈 muestra la imagen completa */
+  object-position: center;
+  margin-bottom: 0.5rem;
+}
+
+.catalogo-ninas__card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.like-button:hover {
+  transform: scale(1.2);
+}
+
+.like-button.liked {
+  color: red;
+}
+
+.detalle-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  border: 1px solid #222;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.detalle-link:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .catalogo-ninas__card img {
+    height: 150px;
+  }
+}

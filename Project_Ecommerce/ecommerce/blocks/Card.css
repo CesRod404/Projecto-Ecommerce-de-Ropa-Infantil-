@@ -1,0 +1,46 @@
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* 👈 mantiene proporción vertical (puedes probar 4/3 si quieres más horizontal) */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #eee;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; /* 👈 centrado horizontal y vertical */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #fff;
+}
+
+.card__category {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.card__title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card__description {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}

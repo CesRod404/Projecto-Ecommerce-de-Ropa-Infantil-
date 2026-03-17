@@ -1,0 +1,193 @@
+/* ====== Reset ====== */
+body {
+  margin: 0;
+}
+
+/* ====== Contenedor principal ====== */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  font-family: "Inter", sans-serif;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ====== Logo ====== */
+.logo_principal {
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+.logo_principal:hover {
+  transform: scale(1.05);
+}
+
+/* ====== Menú Desktop ====== */
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+/* ====== Links ====== */
+.menu__link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding-bottom: 4px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu__link:hover,
+.menu__link.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* ====== Iconos ====== */
+.container__logo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.icon-wrapper {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button,
+.icon-link {
+  all: unset;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.icon-button:hover,
+.icon-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon-button:hover .icon-img,
+.icon-link:hover .icon-img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ====== Dropdown ====== */
+.dropdown-menu {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}
+
+/* ====== Hamburguesa ====== */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Oculto completamente */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+  }
+
+  /* Visible cuando se activa */
+  .menu--active {
+    display: flex;
+  }
+
+  .menu__link {
+    width: 100%;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 769px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0;
+    border: none;
+  }
+
+}

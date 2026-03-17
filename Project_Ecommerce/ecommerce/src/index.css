@@ -1,0 +1,22 @@
+@import url(../vendor/normalize.css);
+@import url(../blocks/Card.css);
+@import url(../blocks/Home.css);
+@import url(../blocks/Container.css);
+@import url(../blocks/CatalogoBautizo.css);
+@import url(../blocks/CatalogoNinas.css);
+@import url(../blocks/CatalogoNinos.css);
+@import url(../blocks/CatalogoAccesorios.css);
+@import url(../blocks/Contacto.css);
+@import url(../blocks/CatalogoApi.css);
+@import url(../blocks/Login.css);
+@import url(../blocks/Register.css);
+@import url(../blocks/Carrito.css);
+@import url(../blocks/AdminPanel.css);
+@import url(../blocks/ProductoCard.css);
+@import url(../blocks/AdminPedidos.css);
+@import url(../blocks/MisPedidos.css);
+@import url(../blocks/DetalleProducto.css);
+
+
+
+
