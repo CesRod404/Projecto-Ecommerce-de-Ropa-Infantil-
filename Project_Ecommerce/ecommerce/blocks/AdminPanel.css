@@ -85,6 +85,30 @@
 }
 
 /* ===============================
+   PREVIEW DE IMAGEN
+================================= */
+.image-preview-container {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.image-preview-label {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.image-preview {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px dashed #cbd5e1;
+  padding: 8px;
+  background: #f8fafc;
+}
+
+/* ===============================
    LISTADO PRODUCTOS
 ================================= */
 .product-grid {

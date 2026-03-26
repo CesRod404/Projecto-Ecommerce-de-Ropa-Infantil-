@@ -10,6 +10,7 @@ export default function AdminPanel() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editandoId, setEditandoId] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -115,6 +116,10 @@ export default function AdminPanel() {
         stock: "",
         tallas: []
       });
+
+      // Limpiar preview de imagen
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
+      setImagePreview(null);
 
       setEditandoId(null);
       obtenerProductos();
@@ -236,11 +241,25 @@ export default function AdminPanel() {
           type="file"
           name="imagen"
           accept="image/*"
-          onChange={(e) =>
-            setFormData({ ...formData, imagen: e.target.files[0] })
-          }
+          onChange={(e) => {
+            const file = e.target.files[0];
+            setFormData({ ...formData, imagen: file });
+            if (file) {
+              if (imagePreview) URL.revokeObjectURL(imagePreview);
+              setImagePreview(URL.createObjectURL(file));
+            } else {
+              setImagePreview(null);
+            }
+          }}
           required={!editandoId}
         />
+
+        {imagePreview && (
+          <div className="image-preview-container">
+            <p className="image-preview-label">Vista previa:</p>
+            <img src={imagePreview} alt="Vista previa" className="image-preview" />
+          </div>
+        )}
 
         <button type="submit" disabled={loading} className="admin-button">
           {loading

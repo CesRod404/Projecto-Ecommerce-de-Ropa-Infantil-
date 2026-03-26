@@ -1,5 +1,5 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 
 import corazon from "../images/corazon.png";
@@ -11,7 +11,13 @@ import accesoActivo from "../images/accesoVerde.png";
 export default function NavBar() {
   const { isAuthenticated, logout, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+
+  // Cerrar menú hamburguesa al cambiar de ruta
+  useEffect(() => {
+    setShowMenu(false);
+  }, [location.pathname]);
 
   const handleLoginClick = () => {
     if (!isAuthenticated) {
