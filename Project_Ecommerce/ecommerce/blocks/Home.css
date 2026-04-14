@@ -9,7 +9,7 @@
 .home-header {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f9f9f9, #fff);
+  background-image: url("../src/assets/fondo.png");
 }
 
 .home-header__title {
@@ -26,12 +26,12 @@
 
 .home-header__buttons {
   display: flex;
-  justify-content:space-around;
-  
+  justify-content: space-around;
+
 }
 
 .home-header__button {
-  
+
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -305,6 +305,7 @@
     text-align: center;
     box-sizing: border-box;
   }
+
   .card-image-wrapper {
     height: 180px;
   }

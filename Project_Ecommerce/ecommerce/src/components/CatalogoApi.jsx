@@ -6,7 +6,7 @@ import ProductoCard from "./ProductoCard";
 export default function CatalogoApi() {
 
   const { token } = useContext(AuthContext);
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
   const [productosPorCategoria, setProductosPorCategoria] = useState({});
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
   const [likes, setLikes] = useState([]);

@@ -1,10 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Carrito() {
 
-  const { token } = useContext(AuthContext);
-  const API_URL = import.meta.env.VITE_API_URL;
+  const { token, isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || "";
 
   const [carrito, setCarrito] = useState([]);
   const [direcciones, setDirecciones] = useState([]);
@@ -17,7 +19,8 @@ export default function Carrito() {
     ciudad: "",
     estado: "",
     codigoPostal: "",
-    telefono: ""
+    telefono: "",
+    pais: "México"
   });
 
   const [loading, setLoading] = useState(true);
@@ -32,7 +35,10 @@ export default function Carrito() {
   // ============================
   useEffect(() => {
 
-    if (!token) return;
+    if (!token) {
+      setLoading(false);
+      return;
+    }
 
     const cargarDatos = async () => {
       try {
@@ -41,7 +47,9 @@ export default function Carrito() {
           headers: { Authorization: `Bearer ${token}` }
         });
         const carritoData = await carritoRes.json();
-        setCarrito(carritoData);
+        // Filtrar productos nulos (por si un producto fue eliminado de la DB)
+        const carritoValido = Array.isArray(carritoData) ? carritoData.filter(item => item && item.producto) : [];
+        setCarrito(carritoValido);
 
         const dirRes = await fetch(`${API_URL}/api/usuario/direcciones`, {
           headers: { Authorization: `Bearer ${token}` }
@@ -93,7 +101,8 @@ export default function Carrito() {
         ciudad: "",
         estado: "",
         codigoPostal: "",
-        telefono: ""
+        telefono: "",
+        pais: "México"
       });
 
     } catch (error) {
@@ -194,7 +203,10 @@ const aumentarCantidad = async (productoId, cantidadActual) => {
     );
 
     const data = await res.json();
-    setCarrito(data.carrito);
+    if (data && data.carrito) {
+      const carritoValido = data.carrito.filter(item => item && item.producto);
+      setCarrito(carritoValido);
+    }
 
   } catch (error) {
     console.error(error);
@@ -236,7 +248,10 @@ const disminuirCantidad = async (productoId, cantidadActual) => {
     );
 
     const data = await res.json();
-    setCarrito(data.carrito);
+    if (data && data.carrito) {
+      const carritoValido = data.carrito.filter(item => item && item.producto);
+      setCarrito(carritoValido);
+    }
 
   } catch (error) {
     console.error(error);
@@ -244,11 +259,24 @@ const disminuirCantidad = async (productoId, cantidadActual) => {
 };
 
 
-  const total = carrito.reduce((acc, item) =>
-    acc + item.producto.precio * item.cantidad, 0
-  );
+  const total = carrito.reduce((acc, item) => {
+    const precio = item.producto?.precio || 0;
+    return acc + precio * item.cantidad;
+  }, 0);
 
-  if (loading) return <p>Cargando carrito...</p>;
+  if (loading) return <p className="loading">Cargando carrito...</p>;
+
+  if (!isAuthenticated) {
+    return (
+      <section className="carrito-container">
+        <h2>Mi Carrito</h2>
+        <p className="mensaje-auth">Debes iniciar sesión para ver tu carrito.</p>
+        <button className="btn-pagar" onClick={() => navigate("/login")}>
+          Ir al Login
+        </button>
+      </section>
+    );
+  }
 
   return (
     <section className="carrito-container">

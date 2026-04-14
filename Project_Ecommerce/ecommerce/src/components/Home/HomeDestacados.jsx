@@ -5,7 +5,7 @@ import { AuthContext } from "../AuthContext";
 export default function HomeDestacados() {
   const { token, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
   const [productos, setProductos] = useState([]);
   const [todosProductos, setTodosProductos] = useState([]);
   const [loading, setLoading] = useState(false);

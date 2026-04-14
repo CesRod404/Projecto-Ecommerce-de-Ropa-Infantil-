@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function DetalleProducto() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +20,7 @@ export default function DetalleProducto() {
       return;
     }
 
-    await fetch(
+    const res = await fetch(
       `${API_URL}/api/usuario/carrito/${producto._id}`,
       {
         method: "POST",
@@ -28,7 +28,11 @@ export default function DetalleProducto() {
       }
     );
 
-    setMensajeCarrito("Producto agregado al carrito ");
+    if (res.ok) {
+      setMensajeCarrito("Producto agregado al carrito ");
+    } else {
+      setMensajeCarrito("Error al agregar al carrito");
+    }
 
     // Ocultarlo después de 2 segundos
     setTimeout(() => {

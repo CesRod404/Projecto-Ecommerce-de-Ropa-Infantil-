@@ -7,7 +7,7 @@ export default function Favoritos() {
   const [likes, setLikes] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -21,7 +21,10 @@ export default function Favoritos() {
       }
     })
       .then(res => res.json())
-      .then(data => setLikes(data.likes))
+      .then(data => {
+        const favoritosValidos = Array.isArray(data.likes) ? data.likes.filter(p => p !== null) : [];
+        setLikes(favoritosValidos);
+      })
       .finally(() => setLoading(false));
   }, [token, isAuthenticated, navigate]);
 

@@ -5,7 +5,7 @@ import { AuthContext } from "./AuthContext";
 export default function AdminPanel() {
   const { token } = useContext(AuthContext);
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
 
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(false);

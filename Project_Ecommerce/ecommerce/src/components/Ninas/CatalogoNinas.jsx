@@ -9,7 +9,7 @@ export default function CatalogoNinas() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [likes, setLikes] = useState([]);
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
 
   useEffect(() => {
     fetch(`${API_URL}/api/productos/categoria/ropa-niña`)

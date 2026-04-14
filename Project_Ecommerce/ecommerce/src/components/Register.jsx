@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function Register() {
   const [form, setForm] = useState({ nombre: "", email: "", password: "" });
   const [message, setMessage] = useState("");
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };

@@ -7,7 +7,7 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const { login } = useContext(AuthContext); 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

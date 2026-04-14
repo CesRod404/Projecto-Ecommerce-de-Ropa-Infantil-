@@ -5,7 +5,7 @@ export default function MisPedidos() {
 
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
   const token = localStorage.getItem("token");
 
   const obtenerMisPedidos = async () => {

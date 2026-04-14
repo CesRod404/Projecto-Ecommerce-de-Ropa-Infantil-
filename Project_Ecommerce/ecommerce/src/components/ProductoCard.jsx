@@ -10,7 +10,7 @@ export default function ProductoCard({
 
   const { token, isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL || "";
   const [mensajeCarrito, setMensajeCarrito] = useState("");
 
   const liked = likes.includes(producto._id);
@@ -41,7 +41,7 @@ export default function ProductoCard({
       return;
     }
 
-    await fetch(
+    const res = await fetch(
       `${API_URL}/api/usuario/carrito/${producto._id}`,
       {
         method: "POST",
@@ -49,7 +49,11 @@ export default function ProductoCard({
       }
     );
 
-    setMensajeCarrito("Producto agregado al carrito ");
+    if (res.ok) {
+      setMensajeCarrito("Producto agregado al carrito ");
+    } else {
+      setMensajeCarrito("Error al agregar al carrito");
+    }
 
     // Ocultarlo después de 2 segundos
     setTimeout(() => {
