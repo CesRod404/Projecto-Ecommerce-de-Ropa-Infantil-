@@ -8,46 +8,52 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
-  font-family: "Inter", sans-serif;
-  border-bottom: 1px solid #ddd;
-  background-color: #fff;
+  padding: 1rem 5%;
+  font-family: var(--font-body);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(107, 138, 122, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
 }
 
 /* ====== Logo ====== */
 .logo_principal {
-  height: 60px;
+  height: auto;
+  max-height: 48px;
+  max-width: 100%;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-base);
   object-fit: contain;
 }
 
 .logo_principal:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* ====== Menú Desktop ====== */
 .menu {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 /* ====== Links ====== */
 .menu__link {
   text-decoration: none;
-  color: #333;
+  color: var(--text-muted);
   font-weight: 500;
+  font-size: 0.9375rem;
   padding-bottom: 4px;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition: color var(--transition-base), border-bottom var(--transition-base);
+  border-bottom: 2px solid transparent;
 }
 
 .menu__link:hover,
 .menu__link.active {
-  color: #000;
-  border-bottom: 2px solid #000;
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--primary);
 }
 
 /* ====== Iconos ====== */

@@ -1,3 +1,7 @@
+/* ====== Google Fonts — Playfair Display (elegance) & Inter (legibility) ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+/* ====== CSS Block Imports ====== */
 @import url(../vendor/normalize.css);
 @import url(../blocks/Card.css);
 @import url(../blocks/Home.css);
@@ -17,6 +21,103 @@
 @import url(../blocks/MisPedidos.css);
 @import url(../blocks/DetalleProducto.css);
 
+/* ====== Design Tokens ====== */
+:root {
+  /* Brand Colors - Soft, Organic, Premium */
+  --primary:        #6b8a7a; /* Sage Green */
+  --primary-light:  #8db09d;
+  --primary-dark:   #4e6b5e;
+  --primary-glow:   rgba(107, 138, 122, 0.12);
 
+  --secondary:      #d4a3b3; /* Muted Blush / Ash Rose */
+  --secondary-light:#ebcadd;
+  --secondary-dark: #b88596;
+  --secondary-glow: rgba(212, 163, 179, 0.15);
 
+  --accent:         #d4b886; /* Warm Sand */
+  --accent-light:   #ebd7b3;
 
+  --success:        #65997a;
+  --success-light:  #dcf2e5;
+  --success-dark:   #4a755b;
+
+  /* Surfaces */
+  --bg-main:   #fdfbf7; /* Warm Off-White */
+  --bg-subtle: #f5f3f0;
+  --bg-card:   #ffffff;
+  --bg-warm:   #fcfaf8;
+
+  /* Text */
+  --text-main:  #2d3748; /* Deep Charcoal instead of pure black */
+  --text-muted: #718096;
+  --text-light: #a0aec0;
+
+  /* Typography */
+  --font-headings: 'Playfair Display', serif;
+  --font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6b8a7a 0%, #8db09d 100%);
+  --gradient-secondary: linear-gradient(135deg, #d4a3b3 0%, #ebcadd 100%);
+  --gradient-hero:    linear-gradient(135deg, rgba(253, 251, 247, 0.85) 0%, rgba(245, 243, 240, 0.95) 100%);
+
+  /* Shadows - Softer and more elegant */
+  --shadow-sm:        0 2px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md:        0 5px 12px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.03);
+  --shadow-lg:        0 12px 28px rgba(0,0,0,0.05), 0 4px 8px rgba(0,0,0,0.04);
+  --shadow-xl:        0 24px 48px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.04);
+  --shadow-primary:   0 8px 24px rgba(107, 138, 122, 0.25);
+  --shadow-secondary: 0 8px 24px rgba(212, 163, 179, 0.25);
+
+  /* Border Radius - Refined */
+  --radius-sm:   0.25rem;    /* 4px */
+  --radius-md:   0.5rem;     /* 8px */
+  --radius-lg:   0.75rem;    /* 12px */
+  --radius-xl:   1rem;       /* 16px */
+  --radius-2xl:  1.25rem;    /* 20px */
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-1:  0.25rem;
+  --spacing-2:  0.5rem;
+  --spacing-3:  0.75rem;
+  --spacing-4:  1rem;
+  --spacing-6:  1.5rem;
+  --spacing-8:  2rem;
+  --spacing-12: 3rem;
+
+  /* Transitions - Smoother, less bounce */
+  --transition-fast:   0.2s ease-in-out;
+  --transition-base:   0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ====== Global Base ====== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* ====== Custom Scrollbar ====== */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg-main); }
+::-webkit-scrollbar-thumb  { background: var(--primary-light); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ====== Text Selection ====== */
+::selection { background: var(--primary-glow); color: var(--primary-dark); }

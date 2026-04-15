@@ -1,15 +1,17 @@
 .card {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4; /* 👈 mantiene proporción vertical (puedes probar 4/3 si quieres más horizontal) */
+  aspect-ratio: 3 / 4;
+  /*  mantiene proporción vertical (puedes probar 4/3 si quieres más horizontal) */
   border-radius: 12px;
   overflow: hidden;
   background-color: #eee;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center; /* 👈 centrado horizontal y vertical */
+  background-position: center center;
+  /* centrado horizontal y vertical */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -38,6 +40,7 @@
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0;
+  color: aliceblue;
 }
 
 .card__description {
